@@ -1,0 +1,19 @@
+{
+  "name": "contactos",
+  "version": "1.0.0",
+  "description": "Aplicación de contactos",
+  "main": "index.js",
+  "scripts": {
+    "dev:api": "nodemon server/src"
+  },
+  "author": "Fidel Araguz <fidel.lara.araguz@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.1",
+    "mongodb": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
