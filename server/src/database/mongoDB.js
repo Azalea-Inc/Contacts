@@ -16,7 +16,7 @@ class MongoDB {
     console.log("Conexión exitosa al servidor");
   }
 
-  getDB() {
+  instance() {
     return this.db;
   }
 }
