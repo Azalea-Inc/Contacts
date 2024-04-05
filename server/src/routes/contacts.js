@@ -33,8 +33,11 @@ module.exports = (DB) => {
   });
 
   //Eliminar contacto
-  router.delete("/:id", (req, res) => {
-    res.send("Eliminando contacto con id " + req.params.id);
+  router.delete("/:id", async (req, res) => {
+    const contact = await collection.deleteOne({
+      _id: new ObjectId(req.params.id),
+    });
+    res.send("Contacto eliminado");
   });
 
   return router;
