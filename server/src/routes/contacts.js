@@ -28,13 +28,18 @@ module.exports = (DB) => {
   });
 
   //Actualizar contacto
-  router.put("/:id", (req, res) => {
+  router.put("/:id", async (req, res) => {
+    let data = req.body;
+    await collection.updateOne(
+      { _id: new ObjectId(req.params.id) },
+      { $set: { ...data } }
+    );
     res.send("Actualizando contacto con id " + req.params.id);
   });
 
   //Eliminar contacto
   router.delete("/:id", async (req, res) => {
-    const contact = await collection.deleteOne({
+    await collection.deleteOne({
       _id: new ObjectId(req.params.id),
     });
     res.send("Contacto eliminado");
