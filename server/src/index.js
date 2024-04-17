@@ -1,24 +1,13 @@
-//Importando librerías
-const express = require("express");
-const bodyParser = require("body-parser");
-const MongoDB = require("./database/mongoDB");
+const ApiExpress = require("./ApiExpress");
 
-//Creando una instancia de express
-const app = express();
-const DB = new MongoDB();
+class ContactApp {
+  static main() {
+    const api = new ApiExpress(3000);
 
-//Middleware
-const bodyParserOptions = { extends: false };
-app.use(bodyParser.urlencoded(bodyParserOptions));
-app.use(bodyParser.json());
+    api.initialize();
+    api.setup();
+    api.start();
+  }
+}
 
-//Importando routers
-const contactRouter = require("./routes/contacts");
-
-//Empaquetando router en la applicación
-app.use("/contacts", contactRouter(DB.instance()));
-
-app.listen(3000, async () => {
-  await DB.init();
-  console.log("Server listen on port 3000");
-});
+ContactApp.main();
