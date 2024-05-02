@@ -3,7 +3,7 @@
   export let titles = [];
 </script>
 
-<div class="w-9/12 mx-auto">
+<div class="container mx-auto p-4">
   <!-- Contact list -->
   <table class="w-full">
     <!-- Header from our table -->
@@ -17,7 +17,7 @@
     <!-- This is the table body -->
     <tbody>
       {#each contacts as contact}
-        <tr class="text-center border-solid border-b-4">
+        <tr class="text-center border-solid border-b">
           <!-- Name -->
           <td class="p-4">
             {contact.name}
@@ -36,8 +36,13 @@
           </td>
           <!-- Actions -->
           <td>
-            <button class="px-2 border-2 rounded-md bg-cyan-300"> Editar </button>
-            <button class="px-2 border-2 rounded-md bg-red-800 text-white"> Eliminar </button>
+            <button class="px-2 border-2 rounded-md bg-cyan-300">
+              <i class="bi bi-pencil-square"></i>
+              Editar
+            </button>
+            <button class="px-2 border-2 rounded-md bg-red-800 text-white">
+              Eliminar
+            </button>
           </td>
         </tr>
       {/each}

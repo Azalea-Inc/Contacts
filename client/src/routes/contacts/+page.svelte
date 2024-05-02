@@ -1,12 +1,15 @@
 <script>
+  import { onDestroy, onMount } from "svelte";
   import Table from "../../views/Table.svelte";
 
+  import axios from "axios";
+
   let titles = [
-    'Nombre',
-    'Apellido',
-    'Correo electronico',
-    'Numero',
-    'Acciones'
+    "Nombre",
+    "Apellido",
+    "Correo electronico",
+    "Télefono",
+    "Acciones",
   ];
 
   let contacts = [
@@ -29,15 +32,36 @@
       phone: "8687895004",
     },
   ];
+
+  function getContacts() {
+    axios
+      .get("https://api.github.com/users")
+      .then(({ data }) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  onMount(() => {
+    getContacts();
+  });
+
+  onDestroy(() => {
+    console.log("Destruyendo");
+  });
 </script>
 
 <!-- Titles with buttons -->
-<div class="w-9/12 mx-auto">
+<div class="container mx-auto p-4">
   <div class="flex justify-between my-5">
     <h3 class="text-3xl font-semibold">Contactos</h3>
-    <a href="/contacts/new" class="p-2  border-2 rounded-md border-sky-500 text-white bg-sky-900">
+    <button
+      class="p-2 border-2 rounded-md border-sky-500 text-white bg-sky-500 hover:bg-sky-600"
+    >
       Agregar contacto
-    </a>
+    </button>
   </div>
 </div>
 
