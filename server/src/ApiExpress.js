@@ -1,16 +1,10 @@
-const Api = require("./Api");
-
 const express = require("express");
 const bodyParser = require("body-parser");
-const MongoDB = require("./database/mongoDB");
 
-module.exports = class ApiExpress extends Api {
+module.exports = class ApiExpress {
   constructor(port) {
-    super();
     this.port = port;
-
     this.app = express();
-    // this.DB = new MongoDB();
   }
 
   initialize() {
@@ -26,7 +20,6 @@ module.exports = class ApiExpress extends Api {
 
   start() {
     this.app.listen(this.port, async () => {
-      // await this.DB.init();
       console.log(`Server listen on port ${this.port}`);
     });
   }

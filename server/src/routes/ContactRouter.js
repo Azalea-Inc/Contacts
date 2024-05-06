@@ -1,4 +1,3 @@
-const { ObjectId } = require("mongodb");
 const CreateContactRoute = require("./contacts/CreateContactRoute");
 const GetContactsRoute = require("./contacts/GetContactsRoute");
 const GetContactRoute = require("./contacts/GetContactRoute");
