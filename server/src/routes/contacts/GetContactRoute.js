@@ -1,12 +1,12 @@
 const { Route } = require("../Route");
+const ContactRepository = require("../../repository/ContactRepository");
 
 module.exports = class GetContactRoute extends Route {
   execute() {
     this.router.get("/:id", async (req, res) => {
-      //   await collection.deleteOne({
-      //     _id: new ObjectId(req.params.id),
-      //   });
-      res.send("Contacto con id " + req.params.id);
+      const id = req.params.id;
+      const contact = await ContactRepository.getById(id);
+      res.send(contact);
     });
   }
 };
