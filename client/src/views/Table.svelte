@@ -36,12 +36,11 @@
           </td>
           <!-- Actions -->
           <td>
-            <button class="px-2 border-2 rounded-md bg-cyan-300">
-              <i class="bi bi-pencil-square"></i>
-              Editar
+            <button class="px-2 py-1 border-2 rounded-md bg-cyan-500 hover:bg-cyan-600">
+              <i class="bi bi-pencil-square text-white"></i>
             </button>
-            <button class="px-2 border-2 rounded-md bg-red-800 text-white">
-              Eliminar
+            <button class="px-2 py-1 border-2 rounded-md bg-red-600 hover:bg-red-700 text-white">
+              <i class="bi bi-trash3-fill text-white"></i>
             </button>
           </td>
         </tr>
